@@ -1,0 +1,6 @@
+framework module Pods_social78 {
+  umbrella header "Pods-social78-umbrella.h"
+
+  export *
+  module * { export * }
+}
