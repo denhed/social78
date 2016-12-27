@@ -14,6 +14,11 @@
 		7259AD641E119C38004C4755 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7259AD631E119C38004C4755 /* Assets.xcassets */; };
 		7259AD671E119C38004C4755 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7259AD651E119C38004C4755 /* LaunchScreen.storyboard */; };
 		7259AD6F1E119CD5004C4755 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7259AD6E1E119CD5004C4755 /* GoogleService-Info.plist */; };
+		7259AD741E127664004C4755 /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7259AD731E127664004C4755 /* FancyView.swift */; };
+		7259AD771E12770C004C4755 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7259AD761E12770C004C4755 /* Constants.swift */; };
+		7259AD791E127C10004C4755 /* RoundBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7259AD781E127C10004C4755 /* RoundBtn.swift */; };
+		7259AD7B1E127F6C004C4755 /* FancyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7259AD7A1E127F6C004C4755 /* FancyField.swift */; };
+		7259AD7D1E128164004C4755 /* FancyBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7259AD7C1E128164004C4755 /* FancyBtn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,11 @@
 		7259AD661E119C38004C4755 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7259AD681E119C38004C4755 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7259AD6E1E119CD5004C4755 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7259AD731E127664004C4755 /* FancyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
+		7259AD761E12770C004C4755 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7259AD781E127C10004C4755 /* RoundBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundBtn.swift; sourceTree = "<group>"; };
+		7259AD7A1E127F6C004C4755 /* FancyField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyField.swift; sourceTree = "<group>"; };
+		7259AD7C1E128164004C4755 /* FancyBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyBtn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +82,7 @@
 		7259AD5B1E119C38004C4755 /* social78 */ = {
 			isa = PBXGroup;
 			children = (
+				7259AD751E1276F4004C4755 /* Util */,
 				7259AD721E11A04F004C4755 /* Controller */,
 				7259AD711E11A048004C4755 /* View */,
 				7259AD701E11A03E004C4755 /* Model */,
@@ -95,6 +106,10 @@
 		7259AD711E11A048004C4755 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7259AD731E127664004C4755 /* FancyView.swift */,
+				7259AD781E127C10004C4755 /* RoundBtn.swift */,
+				7259AD7A1E127F6C004C4755 /* FancyField.swift */,
+				7259AD7C1E128164004C4755 /* FancyBtn.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -105,6 +120,14 @@
 				7259AD5E1E119C38004C4755 /* SignInVC.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		7259AD751E1276F4004C4755 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				7259AD761E12770C004C4755 /* Constants.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 		D4B2417412766E764CF88C1F /* Frameworks */ = {
@@ -240,8 +263,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7259AD7B1E127F6C004C4755 /* FancyField.swift in Sources */,
 				7259AD5F1E119C38004C4755 /* SignInVC.swift in Sources */,
+				7259AD791E127C10004C4755 /* RoundBtn.swift in Sources */,
 				7259AD5D1E119C38004C4755 /* AppDelegate.swift in Sources */,
+				7259AD741E127664004C4755 /* FancyView.swift in Sources */,
+				7259AD771E12770C004C4755 /* Constants.swift in Sources */,
+				7259AD7D1E128164004C4755 /* FancyBtn.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
