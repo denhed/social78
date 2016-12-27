@@ -13,6 +13,9 @@ import Firebase
 
 class SignInVC: UIViewController {
 
+    @IBOutlet weak var emailField: FancyField!
+    @IBOutlet weak var pwdField: FancyField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -51,6 +54,30 @@ class SignInVC: UIViewController {
                 print("Dennis: Successfully auhtenticated with Firebase")
             }
         })
+    }
+    
+    
+    @IBAction func signInTapped(_ sender: Any) {
+        
+        //Firebase kräver minst 6 tecken för email authetication.
+        
+        if let email = emailField.text, let pwd = pwdField.text {
+            FIRAuth.auth()?.signIn(withEmail: email, password: pwd, completion: { (user, error) in
+                if error == nil {
+                    print("Dennis: Email user authentication with Firebase")
+                } else {
+                    //om det inte finns en användar med den email -> skapa nytt konto.
+                    FIRAuth.auth()?.createUser(withEmail: email, password: pwd, completion: { (user, error) in
+                        if error != nil {
+                            print("Dennis: Unable to authenticate with Firebase using email")
+                        } else {
+                            print("Dennis: Successfully authenticated with Firebase")
+                        }
+                    })
+                }
+            })
+        }
+        
     }
 
 }
