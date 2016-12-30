@@ -67,7 +67,9 @@ class SignInVC: UIViewController {
                 
                 // spara uid till keychain för auto signin.
                 if let user = user {
-                    self.completeSignIn(id: user.uid)
+                    // obs: vi använder credential.provider här
+                    let userData = ["provider": credential.provider]
+                    self.completeSignIn(id: user.uid, userData: userData)
                 }
             }
         })
@@ -83,7 +85,8 @@ class SignInVC: UIViewController {
                 if error == nil {
                     print("Dennis: Email user authentication with Firebase")
                     if let user = user {
-                        self.completeSignIn(id: user.uid)
+                        let userData = ["provider": user.providerID]
+                        self.completeSignIn(id: user.uid, userData: userData)
                     }
                 } else {
                     //om det inte finns en användar med den email -> skapa nytt konto.
@@ -93,7 +96,8 @@ class SignInVC: UIViewController {
                         } else {
                             print("Dennis: Successfully authenticated with Firebase")
                             if let user = user {
-                                self.completeSignIn(id: user.uid)
+                                let userData = ["provider": user.providerID]
+                                self.completeSignIn(id: user.uid, userData: userData)
                             }
                         }
                     })
@@ -103,7 +107,12 @@ class SignInVC: UIViewController {
         
     }
     
-    func completeSignIn(id: String) {
+    func completeSignIn(id: String, userData: Dictionary<String, String>) {
+        
+        // skapa en användare i firebase databas.
+        DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
+        
+        
         // spara uid till keychain
         let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
         print("Dennis: Data saved to keychain \(keychainResult)")

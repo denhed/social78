@@ -312,12 +312,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign-out" translatesAutoresizingMaskIntoConstraints="NO" id="X00-Tb-3fz">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign-out" translatesAutoresizingMaskIntoConstraints="NO" id="X00-Tb-3fz">
                                 <rect key="frame" x="16" y="20" width="47" height="38"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="XbQ-r7-Qpt"/>
                                     <constraint firstAttribute="width" constant="47" id="vYT-B3-Vml"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="e18-Z8-gf3" appends="YES" id="03Q-v8-hFT"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.76078431369999999" green="0.094117647060000004" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -343,6 +347,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4qj-as-KiA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="e18-Z8-gf3">
+                    <connections>
+                        <action selector="signOutBtn:" destination="uiC-ot-NNL" id="y1t-KL-Ryo"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="969.375" y="142.6056338028169"/>
         </scene>
