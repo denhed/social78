@@ -27,6 +27,7 @@
 		725E02EB1E12C09000E6A760 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725E02E71E12C09000E6A760 /* FBSDKShareKit.framework */; };
 		729803A61E140BB300A12145 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729803A51E140BB300A12145 /* PostCell.swift */; };
 		729803A91E16F08700A12145 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729803A81E16F08700A12145 /* DataService.swift */; };
+		729803AB1E17EEF000A12145 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729803AA1E17EEF000A12145 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		725E02E71E12C09000E6A760 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		729803A51E140BB300A12145 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		729803A81E16F08700A12145 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		729803AA1E17EEF000A12145 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 		7259AD701E11A03E004C4755 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				729803AA1E17EEF000A12145 /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				721AEF951E132C70008ABA80 /* CircleView.swift in Sources */,
 				7259AD7B1E127F6C004C4755 /* FancyField.swift in Sources */,
 				7259AD5F1E119C38004C4755 /* SignInVC.swift in Sources */,
+				729803AB1E17EEF000A12145 /* Post.swift in Sources */,
 				7259AD791E127C10004C4755 /* RoundBtn.swift in Sources */,
 				7259AD5D1E119C38004C4755 /* AppDelegate.swift in Sources */,
 				729803A91E16F08700A12145 /* DataService.swift in Sources */,
