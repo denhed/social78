@@ -56,7 +56,7 @@ class SignInVC: UIViewController {
                 
             }
         }
-    }
+    } 
     
     func firebaseAuth(_ credential: FIRAuthCredential) {
         FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
