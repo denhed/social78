@@ -183,7 +183,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="RvD-5e-Mjk" appends="YES" id="gaP-0b-Cmr"/>
                                                 </connections>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Add a caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Gv-2f-cc7" customClass="FancyField" customModule="social78" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add a caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Gv-2f-cc7" customClass="FancyField" customModule="social78" customModuleProvider="target">
                                                 <rect key="frame" x="59" y="0.0" width="154" height="49"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="49" id="Es4-iM-g8f"/>
@@ -200,6 +200,9 @@
                                                     <constraint firstAttribute="height" constant="49" id="u4X-ux-Yhf"/>
                                                 </constraints>
                                                 <state key="normal" image="add-post"/>
+                                                <connections>
+                                                    <action selector="postBtnTapped:" destination="uiC-ot-NNL" eventType="touchUpInside" id="JlO-ME-ima"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -345,6 +348,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="captionField" destination="5Gv-2f-cc7" id="KtS-Go-k3W"/>
                         <outlet property="imageAdd" destination="eI2-0e-Tfu" id="zmY-cb-H6E"/>
                         <outlet property="tableView" destination="eJj-qE-EdK" id="Kod-Zw-Vdk"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignIn" id="kNa-vJ-FtS"/>

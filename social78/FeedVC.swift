@@ -14,10 +14,12 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageAdd: CircleView!
+    @IBOutlet weak var captionField: FancyField!
     
     var posts = [Post]()
     var imagePicker: UIImagePickerController!
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
+    var imageSelected = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +88,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         // kolla så vi får tillbaka en bild och inte en video
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             imageAdd.image = image
+            imageSelected = true
         } else {
             print("Dennis: A valid image wasn't selected")
         }
@@ -99,6 +102,43 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         present(imagePicker, animated: true, completion: nil)
         
         
+    }
+    
+    @IBAction func postBtnTapped(_ sender: Any) {
+        
+        guard let caption = captionField.text, caption != "" else {
+            print("Dennis: Caption must be entered")
+            return
+        }
+        
+        // imageSelected indikerar att valt en bild, annars kommer vi skicka upp          
+        // kamera ikonen till fb om vi inte har valt en bild.
+
+        guard let img = imageAdd.image, imageSelected == true else {
+            print("Dennis: Image must be selected")
+            return
+        }
+        
+        if let imgData = UIImageJPEGRepresentation(img, 0.2) {
+        
+            // skapa unikt id för bilden
+            let imgUid = NSUUID().uuidString
+            
+            // sätter metadata så firebase vet vad vi skickar upp,
+            // fb ska göra det automatiskt men kan vara buggig.
+            let metadata = FIRStorageMetadata()
+            metadata.contentType = "image/jpeg"
+            
+            DataService.ds.RES_POST_IMAGES.child(imgUid).put(imgData, metadata: metadata) { (metadata, error) in
+                
+                if error != nil {
+                    print("Dennis: Unable to upload image to Firebase storage")
+                } else {
+                    print("Dennis: Successfully uploaded image to Firebase storage")
+                    let downloadURL = metadata?.downloadURL()?.absoluteString
+                }
+            }
+        }
     }
 
     @IBAction func signOutBtn(_ sender: Any) {
