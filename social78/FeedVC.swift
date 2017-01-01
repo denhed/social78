@@ -136,11 +136,35 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                 } else {
                     print("Dennis: Successfully uploaded image to Firebase storage")
                     let downloadURL = metadata?.downloadURL()?.absoluteString
+                    
+                    if let url = downloadURL {
+                        self.postToFirebase(imgUrl: url)
+                    }
                 }
             }
         }
     }
 
+    func postToFirebase(imgUrl: String) {
+        let post: Dictionary<String, Any> = [
+            "caption": captionField.text!,
+            "imageUrl": imgUrl,
+            "likes": 0
+        ]
+        
+        // childByAutoId() ger oss ett unikt id för post.
+        // vi använder setValue då vi vet att det inte finns en likanande post med samma id.
+        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        firebasePost.setValue(post)
+        
+        // nollställ
+        captionField.text = ""
+        imageSelected = false
+        imageAdd.image = UIImage(named: "add-image")
+        
+        tableView.reloadData()
+    }
+    
     @IBAction func signOutBtn(_ sender: Any) {
         
         // Remove uid from keychain
