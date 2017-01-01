@@ -11,16 +11,22 @@ import Firebase
 
 // https://devslopes-social-b72a5.firebaseio.com/
 let DB_BASE = FIRDatabase.database().reference()
+let STORAGE_BASE = FIRStorage.storage().reference()
 
 class DataService {
     
     // skapa en singelton class
     static let ds = DataService()
     
-    //common endpoints
+    
+    // DB references, common endpoints
     private var _REF_BASE = DB_BASE
     private var _REF_POSTS = DB_BASE.child("posts")
     private var _REF_USERS = DB_BASE.child("users")
+    
+    // Storage referneces
+    private var _REF_POST_IMAGES = STORAGE_BASE.child("post-pics")
+    
     
     var REF_BASE: FIRDatabaseReference {
         return _REF_BASE
@@ -33,6 +39,11 @@ class DataService {
     var REF_USERS: FIRDatabaseReference {
         return _REF_USERS
     }
+    
+    var RES_POST_IMAGES: FIRStorageReference {
+        return _REF_POST_IMAGES
+    }
+    
     
     func createFirebaseDBUser(uid: String, userData: Dictionary<String, String>){
         // om uid inte finns idb så skapar firebase det automatiskt.
